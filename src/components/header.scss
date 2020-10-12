@@ -1,0 +1,21 @@
+.header__line {
+  background-color: black;
+  height: 10px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .header__logo {
+    width: 5rem;
+  }
+
+  .header__menu {
+    width: 5rem;
+    float: right;
+  }
+  .header__contact {
+    width: 5rem;
+  }
+}

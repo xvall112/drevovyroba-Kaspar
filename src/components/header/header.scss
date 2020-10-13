@@ -1,0 +1,39 @@
+@import "../../utils/colors";
+
+.header__line {
+  background-color: $third-color;
+  height: 5px;
+}
+
+.header__logo {
+  display: flex;
+  justify-content: center;
+  img {
+    height: 10vh;
+    margin: 0;
+  }
+}
+
+.header__menuIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 100%;
+
+  button {
+    background: inherit;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+.header__contact {
+  font-size: 0.7rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 700;
+}

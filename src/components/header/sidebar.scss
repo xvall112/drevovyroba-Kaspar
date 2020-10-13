@@ -1,0 +1,59 @@
+@import "../../utils/colors";
+
+.sidebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: $secondary-color;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $fourth-color;
+  justify-content: space-between;
+
+  .sidebar__logo {
+    img {
+      height: 15vh;
+    }
+  }
+  .sidebar__contact {
+    font-size: 1.2rem;
+  }
+  .sidebar__closeButton {
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    button {
+      background: inherit;
+      border: 0px;
+      margin: 0px;
+      padding: 0px;
+      color: $fourth-color;
+    }
+  }
+  .sidebar__nav {
+    ul {
+      list-style: none;
+      margin: 0px;
+      text-decoration: none;
+      text-align: center;
+      li {
+        margin-bottom: 30px;
+        font-size: 30px;
+        a {
+          padding: 20px;
+          color: $fourth-color;
+          background-image: none;
+          text-shadow: none;
+        }
+        a:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}

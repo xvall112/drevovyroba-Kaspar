@@ -1,0 +1,20 @@
+@import "../utils//colors";
+
+.socialIcon {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  font-size: 30px;
+  margin: 0px;
+  text-decoration: none;
+  justify-content: center;
+
+  a {
+    margin: 10px;
+    color: $fourth-color;
+    background-image: none;
+  }
+  a:hover {
+    color: $primary-color;
+  }
+}

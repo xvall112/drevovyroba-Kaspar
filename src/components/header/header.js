@@ -75,6 +75,13 @@ const HeaderNavLinks = styled.div`
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       max-width: 500px;
+      a {
+        padding: 10px;
+      }
+      a:hover {
+        color: inherit;
+        text-decoration: none;
+      }
       li {
         position: relative;
         letter-spacing: 2px;
@@ -82,10 +89,13 @@ const HeaderNavLinks = styled.div`
         padding: 10px 20px;
         width: 100%;
         margin: 0px;
-        a:hover {
-          color: var(--clr-primary);
-          text-decoration: none;
-        }
+        transition: all 0.2s ease-in-out;
+      }
+      li:hover {
+        transform: scale(1.3);
+
+        color: var(--clr-primary);
+        text-decoration: none;
       }
     }
   }

@@ -1,5 +1,7 @@
 @import "../../utils/colors";
-
+nav {
+  z-index: 1;
+}
 .header__line {
   background-color: $third-color;
   height: 5px;

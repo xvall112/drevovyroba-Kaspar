@@ -8,9 +8,8 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { AiTwotonePhone } from "react-icons/ai"
 
 import Sidebar from "../header/sidebar"
-import Tel from "../../constants/tel"
-
-import "./header.scss"
+import SocialIcon from "../../constants/socilaIcon"
+import styled from "styled-components"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,31 +20,119 @@ const Header = () => {
 
   return (
     <React.Fragment>
-      <div className="header__line"></div>
-      <Container>
-        <Row>
-          <Col xs={4}>
-            <div className="header__contact">
-              <Tel />
-            </div>
-          </Col>
-          <Col xs={4}>
-            <div className="header__logo">
-              <img src={logo} alt="logo" />
-            </div>
-          </Col>
-          <Col xs={4}>
-            <div className="header__menuIcon">
-              <button type="button" onClick={toggleSidebar}>
-                <GiHamburgerMenu />
-              </button>
-            </div>
-          </Col>
-        </Row>
-      </Container>
+      <Wrapper>
+        <HeaderLine />
+        <Container>
+          <Row>
+            <Col xs={4}>
+              <HeaderSocialIcon>
+                <SocialIcon />
+              </HeaderSocialIcon>
+            </Col>
+            <Col xs={4}>
+              <HeaderLogo to="/">
+                <img src={logo} alt="logo" />
+              </HeaderLogo>
+            </Col>
+            <Col xs={4}>
+              <HeaderMenuIcon>
+                <button onClick={toggleSidebar}>
+                  <GiHamburgerMenu />
+                </button>
+              </HeaderMenuIcon>
+              <HeaderNavLinks>
+                <ul>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Vyrabime</Link>
+                  </li>
+                  <li>
+                    <Link to="/">Kontakt</Link>
+                  </li>
+                </ul>
+              </HeaderNavLinks>
+            </Col>
+          </Row>
+        </Container>
+      </Wrapper>
       {isOpen && <Sidebar toggleSidebar={toggleSidebar} />}
     </React.Fragment>
   )
 }
 
+const HeaderNavLinks = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  ul {
+    display: none;
+    padding: 0px;
+    margin: 0px;
+    @media (min-width: 800px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 500px;
+      li {
+        position: relative;
+        letter-spacing: 2px;
+        font-weight: 500;
+        padding: 10px 20px;
+        width: 100%;
+        margin: 0px;
+        a:hover {
+          color: var(--clr-primary);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+`
+const HeaderSocialIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`
+const HeaderLogo = styled(Link)`
+  display: flex;
+  justify-content: center;
+  img {
+    height: 10vh;
+    margin: 0;
+  }
+`
+
+const HeaderLine = styled.div`
+  background-color: var(--clr-third);
+  height: 5px;
+`
+
+const HeaderMenuIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  height: 100%;
+ 
+button {
+    background: inherit;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    color: var(--clr-fourth);
+  }
+
+  @media (min-width: 800px) {  
+      display: none;
+`
+const Wrapper = styled.nav`
+  position: relative;
+  background: transparent;
+  z-index: 1;
+  height: auto;
+  color: var(--clr-fourth);
+`
 export default Header

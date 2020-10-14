@@ -1,7 +1,7 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+import { wrapRootElement as wrap } from "./root-wrapper"
 
-// You can delete this file if you're not using it
+export const wrapRootElement = wrap
+
+import "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "./node_modules/react-bootstrap/dist/react-bootstrap"
+import "./node_modules/react-icons/"

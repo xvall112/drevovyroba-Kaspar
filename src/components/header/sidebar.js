@@ -14,7 +14,7 @@ import "./sidebar.scss"
 
 const Sidebar = ({ toggleSidebar }) => {
   return (
-    <div>
+    <aside>
       <Container fluid>
         <div className="sidebar">
           <div className="sidebar__closeButton">
@@ -39,14 +39,13 @@ const Sidebar = ({ toggleSidebar }) => {
             </ul>
           </div>
           <div className="sidebar__contact">
-            <Tel />
             <div className="sidebar__social">
               <SocialIcon />
             </div>
           </div>
         </div>
       </Container>
-    </div>
+    </aside>
   )
 }
 

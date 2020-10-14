@@ -1,5 +1,6 @@
 import React from "react"
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa"
+import { AiTwotonePhone } from "react-icons/ai"
 
 import "./socialIcon.scss"
 
@@ -18,6 +19,11 @@ const socilaIcon = () => {
             </li>
           )
         })}
+        <li>
+          <a href="tel:+420605372498">
+            <AiTwotonePhone />
+          </a>
+        </li>
       </ul>
     </div>
   )

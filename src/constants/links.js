@@ -1,57 +1,46 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import "./links.scss"
-
-const data = [
+import { FaCcStripe, FaCreditCard, FaAlipay } from "react-icons/fa"
+export default [
   {
-    id: 1,
-    text: "Pergoly, Altany",
-    url: "/pergolyAltany",
+    page: "vyrabime",
+    label: "Pergoly, Altany",
+    url: `/vyrabime/pergolyAltany`,
+    icon: <FaCreditCard className="icon" />,
   },
   {
-    id: 2,
-    text: "Dřevostavby",
-    url: "/drevostavby",
+    page: "vyrabime",
+    label: "Dřevostavby",
+    url: `/vyrabime/drevostavby`,
+    icon: <FaCreditCard className="icon" />,
   },
   {
-    id: 3,
-    text: "Dřevěné štíty a fasády",
-    url: "/stityFasady",
+    page: "vyrabime",
+    label: "Dřevěné štíty a fasády",
+    url: `/vyrabime/stityFasady`,
+    icon: <FaCreditCard className="icon" />,
   },
   {
-    id: 4,
-    text: "Krovy",
-    url: "/krovy",
+    page: "vyrabime",
+    label: "Krovy",
+    url: `/vyrabime/krovy`,
+    icon: <FaCreditCard className="icon" />,
   },
   {
-    id: 5,
-    text: "Garážová stání",
-    url: "/garazovaStani",
+    page: "vyrabime",
+    label: "Garážová stání",
+    url: `/vyrabime//garazovaStani`,
+    icon: <FaAlipay className="icon" />,
   },
   {
-    id: 6,
-    text: "Interiér Exteriér",
-    url: "/interierExterier",
+    page: "vyrabime",
+    label: "Interiér Exteriér",
+    url: `/vyrabime/interierExterier`,
+    icon: <FaAlipay className="icon" />,
   },
   {
-    id: 7,
-    text: "Dřevníky",
-    url: "/drevniky",
+    page: "vyrabime",
+    label: "Dřevníky",
+    url: `/vyrabime/drevnik`,
+    icon: <FaAlipay className="icon" />,
   },
 ]
-
-const Links = () => {
-  return (
-    <ul className="links">
-      {data.map(link => {
-        return (
-          <li key={link.id}>
-            <Link to={link.url}>{link.text}</Link>
-          </li>
-        )
-      })}
-    </ul>
-  )
-}
-export default Links

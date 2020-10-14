@@ -6,8 +6,9 @@ import "./tel.scss"
 const tel = () => {
   return (
     <div className="tel">
-      <AiTwotonePhone />
-      <a href="tel:+420605372498">+420605372498</a>
+      <a href="tel:+420605372498">
+        <AiTwotonePhone />
+      </a>
     </div>
   )
 }

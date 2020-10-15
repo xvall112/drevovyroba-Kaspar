@@ -34,7 +34,9 @@ const Sidebar = ({ toggleSidebar }) => {
         <ul>
           {transitions.map(({ item, props, key }) => (
             <animated.li key={key} style={props}>
-              <Link to={item.link}>{item.text}</Link>
+              <Link to={item.link} onClick={toggleSidebar}>
+                {item.text}
+              </Link>
             </animated.li>
           ))}
         </ul>

@@ -5,11 +5,10 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { GiHamburgerMenu } from "react-icons/gi"
-import { AiTwotonePhone } from "react-icons/ai"
-
 import Sidebar from "../header/sidebar"
 import SocialIcon from "../../constants/socilaIcon"
 import styled from "styled-components"
+import { useTransition, animated } from "react-spring"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -18,8 +17,13 @@ const Header = () => {
     setIsOpen(!isOpen)
   }
 
+  const transitions = useTransition(show, null, {
+    from: { position: "absolute", opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+  })
   return (
-    <React.Fragment>
+    <>
       <Wrapper>
         <HeaderLine />
         <Container>
@@ -58,11 +62,12 @@ const Header = () => {
         </Container>
       </Wrapper>
       {isOpen && <Sidebar toggleSidebar={toggleSidebar} />}
-    </React.Fragment>
+    </>
   )
 }
 
 const HeaderNavLinks = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,15 +138,20 @@ button {
     margin: 0px;
     padding: 0px;
     color: var(--clr-fourth);
+    display: flex;
+    justify-content: center;
   }
 
   @media (min-width: 800px) {  
       display: none;
 `
 const Wrapper = styled.nav`
-  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   background: transparent;
-  z-index: 1;
+  z-index: 10;
   height: auto;
   color: var(--clr-fourth);
 `

@@ -22,16 +22,17 @@ const Hero = () => {
 
 const Wrapper = styled.section`
   article {
-    width: 85vw;
-    max-width: 800px;
+    width: 100%;
+
     color: var(--clr-fourth);
-    text-align: center;
+
     h1 {
       margin-bottom: 30px;
       font-weight: 500;
       color: var(--clr-fourth);
       span {
         color: var(--clr-primary);
+        font-size: 4rem;
       }
     }
     a {

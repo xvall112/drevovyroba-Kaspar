@@ -17,10 +17,25 @@ const Header = () => {
     setIsOpen(!isOpen)
   }
 
-  const transitions = useTransition(show, null, {
-    from: { position: "absolute", opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
+  const transitions = useTransition(isOpen, null, {
+    from: {
+      transform: "translate3d(0,-100vh,0)",
+      opacity: 0,
+      position: "absolute",
+      top: "0px",
+    },
+    enter: {
+      transform: "translate3d(0,0px,0)",
+      opacity: 1,
+      position: "absolute",
+      top: "0px",
+    },
+    leave: {
+      transform: "translate3d(0,-100vh,0)",
+      opacity: 0,
+      position: "absolute",
+      top: "0px",
+    },
   })
   return (
     <>
@@ -60,8 +75,15 @@ const Header = () => {
             </Col>
           </Row>
         </Container>
+        {transitions.map(
+          ({ item, key, props }) =>
+            item && (
+              <animated.div key={key} style={props}>
+                <Sidebar toggleSidebar={toggleSidebar} />
+              </animated.div>
+            )
+        )}
       </Wrapper>
-      {isOpen && <Sidebar toggleSidebar={toggleSidebar} />}
     </>
   )
 }
@@ -147,11 +169,11 @@ button {
 `
 const Wrapper = styled.nav`
   position: fixed;
+  z-index: 20;
   top: 0px;
   left: 0px;
   right: 0px;
   background: transparent;
-  z-index: 10;
   height: auto;
   color: var(--clr-fourth);
 `

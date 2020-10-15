@@ -87,14 +87,17 @@ const Background = ({ children }) => {
 const Wrapper = styled.section`
   .children {
     position: absolute;
-    z-index: 50;
+    z-index: 2;
     display: flex;
-    top: 40%;
+    top: 30%;
     left: 10%;
     right: 10%;
     width: 80%;
     display: block;
     text-align: center;
+    @media (min-width: 600px) {
+      top: 40%;
+    }
   }
   .carousel {
     .carousel-item {

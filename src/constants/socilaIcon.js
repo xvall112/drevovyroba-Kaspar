@@ -1,8 +1,7 @@
 import React from "react"
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa"
 import { AiTwotonePhone } from "react-icons/ai"
-
-import "./socialIcon.scss"
+import styled from "styled-components"
 
 const data = [
   { id: 1, icon: <FaFacebookSquare />, url: "#" },
@@ -10,7 +9,7 @@ const data = [
 ]
 const socilaIcon = () => {
   return (
-    <div>
+    <Wrapper>
       <ul className="socialIcon">
         {data.map(link => {
           return (
@@ -25,8 +24,34 @@ const socilaIcon = () => {
           </a>
         </li>
       </ul>
-    </div>
+    </Wrapper>
   )
 }
 
+const Wrapper = styled.div`
+  .socialIcon {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-size: 1.3rem;
+    margin: 0px;
+    text-decoration: none;
+    justify-content: center;
+    li {
+      transition: 0.2s ease-in-out;
+    }
+    li:hover {
+      transform: scale(1.5);
+    }
+    a {
+      margin: 10px;
+      color: $fourth-color;
+      background-image: none;
+      transition: 0.2s ease-in-out;
+    }
+    a:hover {
+      color: var(--clr-primary);
+    }
+  }
+`
 export default socilaIcon

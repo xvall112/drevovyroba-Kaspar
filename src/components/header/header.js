@@ -8,16 +8,26 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import Sidebar from "../header/sidebar"
 import SocialIcon from "../../constants/socilaIcon"
 import styled from "styled-components"
-import { useTransition, animated } from "react-spring"
+import Links from "../../constants/links"
+import SubLinks from "./subLinks"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [subLinkOpen, setSubLinkOpen] = useState(false)
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
   }
 
-  const transitions = useTransition(isOpen, null, {
+  const toggleSubLinks = () => {
+    setSubLinkOpen(true)
+  }
+
+  const toggleSubLinksClose = () => {
+    setSubLinkOpen(false)
+  }
+
+  /* const transitions = useTransition(isOpen, null, {
     from: {
       transform: "translate3d(0,-100vh,0)",
       opacity: 0,
@@ -36,7 +46,7 @@ const Header = () => {
       position: "absolute",
       top: "0px",
     },
-  })
+  }) */
   return (
     <>
       <Wrapper>
@@ -61,28 +71,35 @@ const Header = () => {
               </HeaderMenuIcon>
               <HeaderNavLinks>
                 <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Vyrabime</Link>
-                  </li>
-                  <li>
-                    <Link to="/">Kontakt</Link>
-                  </li>
+                  {Links.map(link => {
+                    return (
+                      <li key={link.key}>
+                        <Link
+                          to={link.url}
+                          onMouseEnter={toggleSubLinks}
+                          onMouseLeave={toggleSubLinksClose}
+                        >
+                          {link.text}
+                        </Link>
+                        {/*  {link.subLinks &&
+                          link.subLinks.map((subLink, index) => {
+                            return (
+                              <li key={index}>
+                                <Link to={subLink.url}>{subLink.text}</Link>
+                              </li>
+                            )
+                          })} */}
+                      </li>
+                    )
+                  })}
                 </ul>
               </HeaderNavLinks>
             </Col>
           </Row>
         </Container>
-        {transitions.map(
-          ({ item, key, props }) =>
-            item && (
-              <animated.div key={key} style={props}>
-                <Sidebar toggleSidebar={toggleSidebar} />
-              </animated.div>
-            )
-        )}
+
+        {isOpen && <Sidebar toggleSidebar={toggleSidebar} />}
+        {subLinkOpen && <SubLinks />}
       </Wrapper>
     </>
   )

@@ -1,52 +1,73 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Link } from "gatsby"
 import { AiOutlineClose } from "react-icons/ai"
 import { IoIosArrowDown } from "react-icons/io"
 import styled from "styled-components"
-import { useTransition, animated } from "react-spring"
+import { useTransition, useSpring, useChain, animated } from "react-spring"
 import logo from "../../images/logo.png"
 import SocialIcon from "../../constants/socilaIcon"
+import links from "../../constants/links"
 
 const Sidebar = ({ toggleSidebar }) => {
-  const items = [
-    { key: "1", text: "HOME", link: "/" },
-    { key: "2", text: "VYRABIME", link: "/" },
-    { key: "3", text: "KONTAKT", link: "/" },
-  ]
+  const items = links
+
+  const springRef = useRef()
+  const transitionRef = useRef()
+
   const transitions = useTransition(items, item => item.key, {
+    ref: transitionRef,
     trail: 400 / items.length,
-    from: { transform: "translate3d(0,-4000px,0)" },
-    enter: { transform: "translate3d(0,0px,0)" },
-    leave: { transform: "translate3d(0,-4000px,0)" },
+    from: { transform: "translate3d(0,-50px,0)", opacity: "0" },
+    enter: { transform: "translate3d(0,0px,0)", opacity: "1" },
+    leave: { transform: "translate3d(0,-50px,0)", opacity: "0" },
   })
 
+  const props = useSpring({
+    ref: springRef,
+    to: {
+      transform: "translate3d(0,0px,0)",
+      opacity: 1,
+      position: "absolute",
+      top: "0px",
+    },
+    from: {
+      transform: "translate3d(0,-100vh,0)",
+      opacity: 0,
+      position: "absolute",
+      top: "0px",
+    },
+  })
+
+  useChain([springRef, transitionRef])
   return (
-    <Wrapper>
-      <div className="sidebar__closeButton">
-        <button type="button" onClick={toggleSidebar}>
-          <AiOutlineClose />
-        </button>
-      </div>
-      <div className="sidebar__logo">
-        <img src={logo} alt="logo" />
-      </div>
-      <div className="sidebar__nav">
-        <ul>
-          {transitions.map(({ item, props, key }) => (
-            <animated.li key={key} style={props}>
-              <Link to={item.link} onClick={toggleSidebar}>
-                {item.text}
-              </Link>
-            </animated.li>
-          ))}
-        </ul>
-      </div>
-      <div className="sidebar__contact">
-        <div className="sidebar__social">
-          <SocialIcon />
+    <animated.div style={props}>
+      <Wrapper>
+        <div className="sidebar__closeButton">
+          <button type="button" onClick={toggleSidebar}>
+            <AiOutlineClose />
+          </button>
         </div>
-      </div>
-    </Wrapper>
+        <div className="sidebar__logo">
+          <img src={logo} alt="logo" />
+        </div>
+        <div className="sidebar__nav">
+          <ul>
+            {transitions.map(({ item, props, key }) => (
+              <animated.li key={key} style={props}>
+                <Link to={item.url} onClick={toggleSidebar}>
+                  {item.text}
+                </Link>
+              </animated.li>
+            ))}
+          </ul>
+        </div>
+        <div className="sidebar__contact">
+          <div className="sidebar__social">
+            <SocialIcon />
+          </div>
+        </div>
+      </Wrapper>
+    </animated.div>
   )
 }
 

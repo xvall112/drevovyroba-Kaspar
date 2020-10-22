@@ -1,7 +1,26 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require("path")
 
-// You can delete this file if you're not using it
+module.exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  //create page for Stavime
+  const stavimeTemplate = path.resolve("./src/templates/stavime.js")
+  const res = await graphql(`
+    query MyQuery {
+      allContentfulVyrabimeStavime {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
+  res.data.allContentfulVyrabimeStavime.nodes.forEach(node => {
+    createPage({
+      component: stavimeTemplate,
+      path: `/vyrabimeStavime/${node.slug}`,
+      context: {
+        slug: node.slug,
+      },
+    })
+  })
+}

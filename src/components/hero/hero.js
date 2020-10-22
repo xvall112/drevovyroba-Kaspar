@@ -12,7 +12,7 @@ const Hero = () => {
             <h1>
               Dřevovýroba <span>Kašpar</span>
             </h1>
-            <Link to="/kontakt">Kontakt</Link>
+            <Link to="#kontakt">Kontakt</Link>
           </article>
         </Background>
       </Wrapper>
@@ -45,9 +45,15 @@ const Wrapper = styled.section`
       font-size: 1rem;
       cursor: pointer;
       transition: var(--transition);
+      border-radius: 5px;
     }
     a:hover {
-      background: var(--clr-primary);
+      background-image: linear-gradient(
+        to right,
+        var(--clr-primary) 0%,
+        #d6ae7b 51%,
+        var(--clr-primary) 100%
+      );
       color: var(--clr-fourth);
       text-decoration: none;
       border: 2px solid var(--clr-primary);

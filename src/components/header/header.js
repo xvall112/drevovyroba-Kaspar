@@ -6,27 +6,18 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { GiHamburgerMenu } from "react-icons/gi"
 import Sidebar from "../header/sidebar"
-import SocialIcon from "../../constants/socilaIcon"
+import socialKontakt from "../../constants/socialKontakt"
 import styled from "styled-components"
 import Links from "../../constants/links"
-import SubLinks from "./subLinks"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [subLinkOpen, setSubLinkOpen] = useState(false)
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen)
   }
 
-  const toggleSubLinks = () => {
-    setSubLinkOpen(true)
-  }
-
-  const toggleSubLinksClose = () => {
-    setSubLinkOpen(false)
-  }
-
+  /* Jine Transition pro sidebar */
   /* const transitions = useTransition(isOpen, null, {
     from: {
       transform: "translate3d(0,-100vh,0)",
@@ -55,7 +46,15 @@ const Header = () => {
           <Row>
             <Col xs={4}>
               <HeaderSocialIcon>
-                <SocialIcon />
+                <div className="socialIcons">
+                  {socialKontakt.map((item, index) => {
+                    return (
+                      <a href={item.url} key={index}>
+                        <div className="icon">{item.icon}</div>
+                      </a>
+                    )
+                  })}
+                </div>
               </HeaderSocialIcon>
             </Col>
             <Col xs={4}>
@@ -74,13 +73,7 @@ const Header = () => {
                   {Links.map(link => {
                     return (
                       <li key={link.key}>
-                        <Link
-                          to={link.url}
-                          onMouseEnter={toggleSubLinks}
-                          onMouseLeave={toggleSubLinksClose}
-                        >
-                          {link.text}
-                        </Link>
+                        <Link to={link.url}>{link.text}</Link>
                         {/*  {link.subLinks &&
                           link.subLinks.map((subLink, index) => {
                             return (
@@ -99,7 +92,6 @@ const Header = () => {
         </Container>
 
         {isOpen && <Sidebar toggleSidebar={toggleSidebar} />}
-        {subLinkOpen && <SubLinks />}
       </Wrapper>
     </>
   )
@@ -145,16 +137,58 @@ const HeaderNavLinks = styled.div`
   }
 `
 const HeaderSocialIcon = styled.div`
-  display: flex;
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+  }
+
   justify-content: center;
   align-items: center;
   height: 100%;
+  .socialIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+      color: black;
+      @media (min-width: 768px) {
+        margin: 10px;
+      }
+      margin: 2px;
+    }
+    .icon {
+      min-width: 30px;
+      height: 30px;
+      background: var(--clr-fourth);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 15px;
+      transition: all 0.2s ease-in-out;
+      @media (min-width: 768px) {
+        min-width: 40px;
+        height: 40px;
+        font-size: 22px;
+      }
+    }
+    .icon:hover {
+      background-image: linear-gradient(
+        to right,
+        var(--clr-primary) 0%,
+        #d6ae7b 51%,
+        var(--clr-primary) 100%
+      );
+      transform: scale(1.3);
+    }
+  }
 `
 const HeaderLogo = styled(Link)`
   display: flex;
   justify-content: center;
   img {
-    height: 10vh;
+    height: 70px;
     margin: 0;
   }
 `
@@ -186,12 +220,23 @@ button {
 `
 const Wrapper = styled.nav`
   position: fixed;
+  background-color: var(--clr-third);
   z-index: 20;
   top: 0px;
   left: 0px;
   right: 0px;
-  background: transparent;
-  height: auto;
+
+  height: 70px;
   color: var(--clr-fourth);
+
+  @media (min-width: 768px) {
+    height: 80px;
+  }
+  @media (min-width: 992px) {
+    height: 80px;
+  }
+  @media (min-width: 1200px) {
+    height: 70px;
+  }
 `
 export default Header

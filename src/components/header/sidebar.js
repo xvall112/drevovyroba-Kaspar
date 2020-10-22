@@ -5,8 +5,8 @@ import { IoIosArrowDown } from "react-icons/io"
 import styled from "styled-components"
 import { useTransition, useSpring, useChain, animated } from "react-spring"
 import logo from "../../images/logo.png"
-import SocialIcon from "../../constants/socilaIcon"
 import links from "../../constants/links"
+import socialKontakt from "../../constants/socialKontakt"
 
 const Sidebar = ({ toggleSidebar }) => {
   const items = links
@@ -61,11 +61,18 @@ const Sidebar = ({ toggleSidebar }) => {
             ))}
           </ul>
         </div>
-        <div className="sidebar__contact">
-          <div className="sidebar__social">
-            <SocialIcon />
+
+        <HeaderSocialIcon>
+          <div className="socialIcons">
+            {socialKontakt.map((item, index) => {
+              return (
+                <a href={item.url} key={index}>
+                  <div className="icon">{item.icon}</div>
+                </a>
+              )
+            })}
           </div>
-        </div>
+        </HeaderSocialIcon>
       </Wrapper>
     </animated.div>
   )
@@ -126,6 +133,36 @@ const Wrapper = styled.div`
           color: var(--clr-primary);
         }
       }
+    }
+  }
+`
+
+const HeaderSocialIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  .socialIcons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    a {
+      color: black;
+      margin: 10px;
+    }
+    .icon {
+      min-width: 50px;
+      height: 50px;
+      background: var(--clr-fourth);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 22px;
+    }
+    .icon:hover {
+      background: var(--clr-primary);
     }
   }
 `

@@ -7,7 +7,7 @@ export default [
   {
     key: "2",
     text: "vyrabime",
-    url: "/",
+    url: "/#vyrabime",
     /*  subLinks: [
       {
         page: "vyrabime",
@@ -49,6 +49,6 @@ export default [
   {
     key: "3",
     text: "kontakt",
-    url: "/",
+    url: "#kontakt",
   },
 ]

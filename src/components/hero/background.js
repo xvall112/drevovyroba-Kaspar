@@ -1,17 +1,15 @@
 import React, { useState } from "react"
 import BackgroundImage from "gatsby-background-image"
 import { useStaticQuery, graphql } from "gatsby"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import Carousel from "react-bootstrap/Carousel"
-import img from "../../images/caroline.png.jpg"
-import imgg from "../../images/florian.jpg"
 
 const query = graphql`
   {
-    file(relativePath: { eq: "florian.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
+    contentfulHeroImage {
+      heroImages {
+        fluid(maxWidth: 1200) {
+          ...GatsbyContentfulFluid
         }
       }
     }
@@ -24,62 +22,25 @@ const Background = ({ children }) => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex)
   }
-  const {
-    file: {
-      childImageSharp: { fluid },
-    },
-  } = useStaticQuery(query)
+  const data = useStaticQuery(query)
 
   return (
     <Wrapper>
       <div className="children">{children}</div>
 
       <Carousel activeIndex={index} onSelect={handleSelect} fade={true}>
-        <Carousel.Item>
-          <BackgroundImage
-            Tag="div"
-            fluid={fluid}
-            className="bcg"
-            preserveStackingContext={true}
-          />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={img} alt="Second slide" />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <BackgroundImage
-            Tag="div"
-            fluid={fluid}
-            className="bcg"
-            preserveStackingContext={true}
-          />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-100" src={img} alt="Third slide" />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        {data.contentfulHeroImage.heroImages.map((item, index) => {
+          return (
+            <Carousel.Item key={index}>
+              <BackgroundImage
+                Tag="div"
+                fluid={item.fluid}
+                className="bcg"
+                preserveStackingContext={true}
+              />
+            </Carousel.Item>
+          )
+        })}
       </Carousel>
     </Wrapper>
   )

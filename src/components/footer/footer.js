@@ -1,11 +1,11 @@
 import React from "react"
 
-import "./footer.scss"
+import Kontakt from "../Kontakt/Kontakt"
 
 const Footer = () => {
   return (
     <div>
-      <h2>Footer</h2>
+      <Kontakt />
     </div>
   )
 }

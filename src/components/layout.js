@@ -22,9 +22,12 @@ const Layout = ({ children }) => {
       <div>
         <main>{children}</main>
         <footer>
-          <Footer />© {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <Footer />
+          <div className="text-center">
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="#">Lukas Valta</a>
+          </div>
         </footer>
       </div>
     </>

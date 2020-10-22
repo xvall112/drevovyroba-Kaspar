@@ -33,11 +33,11 @@ const Skill = () => {
         <Row>
           {data.map((item, index) => {
             return (
-              <Col md={4} key={index}>
+              <Col md={4} key={index} className="coll">
                 <div className="skills__icon">{item.icon}</div>
 
                 <h4>{item.title}</h4>
-                <p>{item.text}</p>
+                <p className="font-weight-lighter">{item.text}</p>
               </Col>
             )
           })}
@@ -56,6 +56,9 @@ const Wrapper = styled.div`
     border-radius: 10px;
     display: inline-block;
     color: var(--clr-primary);
+  }
+  .coll {
+    margin-top: 2rem;
   }
 `
 export default Skill

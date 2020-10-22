@@ -1,17 +1,23 @@
 import React from "react"
 import Skill from "./Skill"
 import styled from "styled-components"
+import Zkusenosti from "./Zkusenosti"
+import Uvod from "./uvod"
 
 const Skills = () => {
   return (
     <Wrapper>
+      <Uvod />
+
       <Skill />
+      <Zkusenosti />
     </Wrapper>
   )
 }
 const Wrapper = styled.div`
-  min-height: 100vh;
+  margin-top: 4rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
 `
 export default Skills

@@ -13,8 +13,15 @@ Variables
     /* primary/main color */
     --clr-primary:#a1806a;
     --clr-secondary: #546e7a;
-    --clr-third:  #000000;
+    --clr-third: #221E20;
     --clr-fourth: #ffffff;
+    --clr-background: #f8f8f8;
+    --clr-gradient:linear-gradient(
+      129deg,
+      rgba(84, 110, 122, 1) 0%,
+      rgba(161, 128, 106, 1) 50%,
+      rgba(255, 251, 51, 1) 100%
+    );
 
     /* darkest grey - used for headings */
     --clr-grey-1: hsl(209, 61%, 16%);
@@ -41,6 +48,10 @@ Variables
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     --max-width: 1170px;
     --fixed-width: 620px;
+    --media-sm: 576px;
+    --media-md: 768px;
+    --media-lg: 992px;
+    --media-xl: 1200px;
   }
   /*
   =============== 

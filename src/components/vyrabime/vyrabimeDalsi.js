@@ -53,6 +53,9 @@ const VyrabimeDalsi = () => {
 }
 
 const Wrapper = styled.div`
+  h4 {
+    color: var(--clr-primary);
+  }
   margin: 2rem 0.2rem;
   @media (min-width: 768px) {
     margin: 4rem 1rem;

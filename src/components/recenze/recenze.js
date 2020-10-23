@@ -78,7 +78,7 @@ const Carousell = styled(Carousel)`
       color: black;
     }
     @media (min-width: 768px) {
-      height: 60vh;
+      height: 500px;
     }
     .car {
       margin: 0 auto;

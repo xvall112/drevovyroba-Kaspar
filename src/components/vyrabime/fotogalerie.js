@@ -1,19 +1,21 @@
 import React from "react"
-import SwiperCore, { EffectCube } from "swiper"
+import SwiperCore, { EffectCube, Navigation } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "../../../node_modules/swiper/swiper.scss"
 import "../../../node_modules/swiper/components/effect-cube/effect-cube.scss"
+import "../../../node_modules/swiper/components/navigation/navigation.scss"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-SwiperCore.use([EffectCube])
+SwiperCore.use([EffectCube, Navigation])
 
 const Fotogalerie = ({ img }) => {
   return (
     <Wrapper>
-      <h4>Fotogalerie</h4>
+      <h4>Hotové stavby</h4>
       <Swiper
-        spaceBetween={20}
+        navigation
+        spaceBetween={0}
         slidesPerView={1}
         effect="cube"
         onSlideChange={() => console.log("slide change")}
@@ -32,6 +34,10 @@ const Fotogalerie = ({ img }) => {
 }
 const Wrapper = styled.div`
   margin-top: 4rem;
+  ul {
+    list-style-type: none !important;
+  }
+
   h4 {
     color: var(--clr-primary);
   }

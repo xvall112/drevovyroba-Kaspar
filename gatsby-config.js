@@ -6,7 +6,6 @@ module.exports = {
     title: `Dřevovýroba Kašpar`,
     description: `Zabýváme se výrobou a výstavbou veškerých dřevěných konstrukcí a prvků tesařského charakteru.`,
     author: `@kaspar`,
-    siteUrl: "",
     image: "/src/images/logo.png",
     lang: "cs",
     keywords: [

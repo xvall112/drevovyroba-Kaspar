@@ -102,6 +102,7 @@ const Wrapper = styled.div`
 
   .typed {
     color: var(--clr-primary);
+    min-height: 120px;
   }
   .links {
     padding: 20px 0;

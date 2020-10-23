@@ -138,6 +138,7 @@ const Wrapper = styled.div`
 `
 
 const HeaderSocialIcon = styled.div`
+  padding-bottom: 60px;
   display: flex;
   justify-content: center;
   align-items: center;

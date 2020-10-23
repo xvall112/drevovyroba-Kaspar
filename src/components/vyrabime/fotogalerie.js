@@ -12,12 +12,11 @@ SwiperCore.use([EffectCube, Navigation])
 const Fotogalerie = ({ img }) => {
   return (
     <Wrapper>
-      <h4>Hotové stavby</h4>
+      <h4>Hotové projekty</h4>
       <Swiper
         navigation
         spaceBetween={0}
         slidesPerView={1}
-        effect="cube"
         onSlideChange={() => console.log("slide change")}
         onSwiper={swiper => console.log(swiper)}
       >

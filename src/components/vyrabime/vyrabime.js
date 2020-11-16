@@ -44,7 +44,7 @@ const Vyrabime = () => {
             return (
               <Col md={4} className="coll" key={index}>
                 <Card>
-                  {/*  <BackgroundImage
+                  <BackgroundImage
                     Tag="div"
                     fluid={item.mainImage.fluid}
                     className="bcg "
@@ -52,7 +52,7 @@ const Vyrabime = () => {
                   >
                     <h2 className="text-center">{item.title}</h2>
                     <Link to={`/vyrabimeStavime/${item.slug}`}>Vice</Link>
-                  </BackgroundImage> */}
+                  </BackgroundImage>
                 </Card>
               </Col>
             )

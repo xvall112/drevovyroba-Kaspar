@@ -49,7 +49,7 @@ const KontaktForm = () => {
           }}
         >
           {() => (
-            <Form name="kontaktniFormular" data-netlify={true}>
+            <Form name="kontaktniFormular">
               <Row>
                 <Col xs={12}>
                   <div className="inputBox">

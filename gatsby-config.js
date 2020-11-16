@@ -30,7 +30,6 @@ module.exports = {
         spaceId: `y8jmdpyv8csl`,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: `https://drevovyrobakasparmain.gtsb.io/`,
       },
     },
     `gatsby-plugin-sass`,

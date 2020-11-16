@@ -34,14 +34,14 @@ const VyrabimeDalsi = () => {
             return (
               <li key={index} className="shadow-sm">
                 <Link to={`/vyrabimeStavime/${item.slug}`}>
-                  {/* <BackgroundImage
+                  <BackgroundImage
                     Tag="div"
                     fluid={item.mainImage.fluid}
                     className="bcg"
                     preserveStackingContext={true}
                   >
                     <h4>{item.title}</h4>
-                  </BackgroundImage> */}
+                  </BackgroundImage>
                 </Link>
               </li>
             )

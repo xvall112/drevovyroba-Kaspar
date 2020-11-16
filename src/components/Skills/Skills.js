@@ -1,7 +1,7 @@
 import React from "react"
 import Skill from "./Skill"
 import styled from "styled-components"
-import Zkusenosti from "./Zkusenosti"
+/* import Zkusenosti from "./Zkusenosti" */
 import Uvod from "./uvod"
 
 const Skills = () => {
@@ -10,7 +10,7 @@ const Skills = () => {
       <Uvod />
 
       <Skill />
-      <Zkusenosti />
+      {/* <Zkusenosti /> */}
     </Wrapper>
   )
 }

@@ -93,7 +93,7 @@ const KontaktForm = () => {
               </Row>
               <Button
                 disabled={!formik.isValid}
-                typr="submit"
+                type="submit"
                 variant="contained"
                 color="primary"
                 className="mt-3"

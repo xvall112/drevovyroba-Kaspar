@@ -48,7 +48,7 @@ const KontaktForm = () => {
               .finally(() => actions.setSubmitting(false))
           }}
         >
-          {formik => (
+          {() => (
             <Form name="kontaktniFormular" data-netlify={true}>
               <Row>
                 <Col xs={12}>

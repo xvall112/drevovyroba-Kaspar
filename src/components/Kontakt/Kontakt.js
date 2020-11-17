@@ -31,7 +31,9 @@ const Kontakt = () => {
                       </div>
                       <div className="text">
                         <h3>Adresa</h3>
-                        <p>Příbram, CR</p>
+                        <p>Kozinova 1073/11</p>
+                        <p>Liberec 1, 46001</p>
+                        <p>IČ: 87953439</p>
                       </div>
                     </div>
                     <div className="box">

@@ -1,14 +1,14 @@
 import React from "react"
-import SwiperCore, { EffectCube, Navigation, Pagination } from "swiper"
+import SwiperCore, { Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
-import "../../../node_modules/swiper/swiper.scss"
-import "../../../node_modules/swiper/components/effect-cube/effect-cube.scss"
-import "../../../node_modules/swiper/components/navigation/navigation.scss"
-import "../../../node_modules/swiper/components/pagination/pagination.scss"
+import "swiper/swiper.scss"
+import "swiper/components/effect-cube/effect-cube.scss"
+import "swiper/components/navigation/navigation.scss"
+import "swiper/components/pagination/pagination.scss"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-SwiperCore.use([EffectCube, Navigation, Pagination])
+SwiperCore.use([Navigation, Pagination])
 
 const Fotogalerie = ({ img }) => {
   return (

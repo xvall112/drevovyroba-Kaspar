@@ -13,13 +13,7 @@ const Fotogalerie = ({ img }) => {
   return (
     <Wrapper>
       <h4>Hotové projekty</h4>
-      <Swiper
-        navigation
-        spaceBetween={0}
-        slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={swiper => console.log(swiper)}
-      >
+      <Swiper navigation spaceBetween={0} slidesPerView={1}>
         {img.map((image, index) => {
           return (
             <SwiperSlide key={index}>

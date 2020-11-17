@@ -1,19 +1,25 @@
 import React from "react"
-import SwiperCore, { EffectCube, Navigation } from "swiper"
+import SwiperCore, { EffectCube, Navigation, Pagination } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "../../../node_modules/swiper/swiper.scss"
 import "../../../node_modules/swiper/components/effect-cube/effect-cube.scss"
 import "../../../node_modules/swiper/components/navigation/navigation.scss"
+import "../../../node_modules/swiper/components/pagination/pagination.scss"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-SwiperCore.use([EffectCube, Navigation])
+SwiperCore.use([EffectCube, Navigation, Pagination])
 
 const Fotogalerie = ({ img }) => {
   return (
     <Wrapper>
       <h4>Hotové projekty</h4>
-      <Swiper navigation spaceBetween={0} slidesPerView={1}>
+      <Swiper
+        navigation
+        spaceBetween={0}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+      >
         {img.map((image, index) => {
           return (
             <SwiperSlide key={index}>

@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField"
 import { IoMdSend } from "react-icons/io"
 import styled from "styled-components"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
-import { withSnackbar } from "notistack"
+import cogoToast from "cogo-toast"
 
 const encode = data => {
   return Object.keys(data)
@@ -23,12 +23,7 @@ const validationSchema = yup.object({
   zprava: yup.string("Enter your email").required("Napiš zprávu"),
 })
 
-const FormContact = props => {
-  const formMessage = (variant, message) => {
-    // success could be success, error, warning, info, or default
-    props.enqueueSnackbar(message, { variant })
-  }
-
+const FormContact = () => {
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -46,10 +41,12 @@ const FormContact = props => {
         }),
       })
         .then(() => {
-          formMessage("success", "Zpráva byla odeslána")
+          cogoToast.success("Zpráva byla odeslána", {
+            position: "bottom-left",
+          })
           formik.resetForm()
         })
-        .catch(error => formMessage("error", error))
+        .catch(error => cogoToast.alert(error, { position: "bottom-left" }))
     },
   })
 
@@ -137,4 +134,4 @@ const Wrapper = styled.div`
     padding: 20px;
   }
 `
-export default withSnackbar(FormContact)
+export default FormContact

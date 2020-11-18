@@ -6,7 +6,7 @@ import TextField from "@material-ui/core/TextField"
 import { IoMdSend } from "react-icons/io"
 import styled from "styled-components"
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles"
-import { useSnackbar } from "notistack"
+import { withSnackbar } from "notistack"
 
 const encode = data => {
   return Object.keys(data)
@@ -22,11 +22,11 @@ const validationSchema = yup.object({
     .required("Vyplňte email"),
   zprava: yup.string("Enter your email").required("Napiš zprávu"),
 })
-const { enqueueSnackbar } = useSnackbar()
-const FormContact = () => {
+
+const FormContact = props => {
   const formMessage = (variant, message) => {
     // success could be success, error, warning, info, or default
-    enqueueSnackbar(message, { variant })
+    props.enqueueSnackbar(message, { variant })
   }
 
   const formik = useFormik({
@@ -137,4 +137,4 @@ const Wrapper = styled.div`
     padding: 20px;
   }
 `
-export default FormContact
+export default withSnackbar(FormContact)

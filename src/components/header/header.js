@@ -73,7 +73,9 @@ const Header = () => {
                   {Links.map(link => {
                     return (
                       <li key={link.key}>
-                        <Link to={link.url}>{link.text}</Link>
+                        <Link to={link.url} className="text-uppercase">
+                          {link.text}
+                        </Link>
                         {/*  {link.subLinks &&
                           link.subLinks.map((subLink, index) => {
                             return (

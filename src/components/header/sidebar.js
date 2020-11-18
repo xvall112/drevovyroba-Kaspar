@@ -54,7 +54,11 @@ const Sidebar = ({ toggleSidebar }) => {
           <ul>
             {transitions.map(({ item, props, key }) => (
               <animated.li key={key} style={props}>
-                <Link to={item.url} onClick={toggleSidebar}>
+                <Link
+                  to={item.url}
+                  onClick={toggleSidebar}
+                  className="text-uppercase"
+                >
                   {item.text}
                 </Link>
               </animated.li>

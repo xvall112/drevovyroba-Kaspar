@@ -1,18 +1,19 @@
 import React from "react"
-import SwiperCore, { Navigation } from "swiper"
+import SwiperCore, { Navigation, Autoplay } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/swiper.scss"
 
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-SwiperCore.use([Navigation])
+SwiperCore.use([Navigation, Autoplay])
 
 const Fotogalerie = ({ img }) => {
   return (
     <Wrapper>
       <h4>Hotové projekty</h4>
       <Swiper
+        autoplay
         navigation
         spaceBetween={0}
         slidesPerView={1}

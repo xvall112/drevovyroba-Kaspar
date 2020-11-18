@@ -6,9 +6,11 @@ import Col from "react-bootstrap/Col"
 import { FaMapMarkerAlt } from "react-icons/fa"
 import { AiOutlineMail } from "react-icons/ai"
 import { AiOutlinePhone } from "react-icons/ai"
+import Card from "@material-ui/core/Card"
+import CardContent from "@material-ui/core/CardContent"
 
 import socialKontakt from "../../constants/socialKontakt"
-import Form from "./form"
+import FormContact from "./formContact"
 
 const Kontakt = () => {
   return (
@@ -61,7 +63,11 @@ const Kontakt = () => {
                   </div>
                 </Col>
                 <Col xs={12} xl={6}>
-                  <Form />
+                  <Card>
+                    <CardContent>
+                      <FormContact />
+                    </CardContent>
+                  </Card>
                 </Col>
               </Row>
               <div className="row mt-5">

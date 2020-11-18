@@ -130,7 +130,7 @@ const HeaderNavLinks = styled.div`
         transition: all 0.2s ease-in-out;
       }
       li:hover {
-        transform: scale(1.3);
+        transform: scale(1.1);
 
         color: var(--clr-primary);
         text-decoration: none;

@@ -68,13 +68,13 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     list-style-type: none !important;
-    height: 25vh;
+    height: 60vh;
   }
 
   li {
-    min-width: 200px;
+    width: 200px;
     border-radius: 10px;
-    height: 20vh;
+    height: 50vh;
     margin: 0 10px;
     transition: all 0.2s ease-in-out;
     @media (min-width: 992px) {

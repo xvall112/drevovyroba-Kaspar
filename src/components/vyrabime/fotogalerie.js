@@ -97,6 +97,6 @@ const Wrapper = styled.div`
   }
 `
 const Foto = styled(Img)`
-  height: 400px;
+  height: 60vh;
 `
 export default Fotogalerie

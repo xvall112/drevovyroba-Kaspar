@@ -22,10 +22,8 @@ const validationSchema = yup.object({
     .required("Vyplňte email"),
   zprava: yup.string("Enter your email").required("Napiš zprávu"),
 })
-
+const { enqueueSnackbar } = useSnackbar()
 const FormContact = () => {
-  const { enqueueSnackbar } = useSnackbar()
-
   const formMessage = (variant, message) => {
     // success could be success, error, warning, info, or default
     enqueueSnackbar(message, { variant })

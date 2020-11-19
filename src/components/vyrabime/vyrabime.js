@@ -64,6 +64,7 @@ const Vyrabime = () => {
 }
 
 const Wrapper = styled.div`
+  padding-top: 80px;
   min-height: 100vh;
   margin-top: 4rem;
 

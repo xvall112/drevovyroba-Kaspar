@@ -129,6 +129,7 @@ const theme = createMuiTheme({
 })
 
 const Wrapper = styled.div`
+  margin-top: 15px;
   .field {
     min-height: 70px;
     padding: 20px;

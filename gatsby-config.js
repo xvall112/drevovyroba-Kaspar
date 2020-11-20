@@ -4,8 +4,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Dřevovýroba Kašpar`,
-    description: `Zabýváme se výrobou a výstavbou veškerých dřevěných konstrukcí a prvků tesařského charakteru.`,
+    description: `Zabýváme se výrobou a výstavbou veškerých dřevěných konstrukcí a prvků tesařského charakteru v okolí Liberce.`,
     author: `@kaspar`,
+    siteURL: "drevovyrobakaspar.cz",
     image: "/src/images/logo.png",
     lang: "cs",
     keywords: [
@@ -15,6 +16,9 @@ module.exports = {
       "dřevěné fasády",
       "střechy",
       "garážová stání",
+      "Liberec",
+      "drevostavby",
+      "drevovyroba",
     ],
   },
   plugins: [

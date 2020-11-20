@@ -22,15 +22,18 @@ const query = graphql`
   }
 `
 
-const VyrabimeDalsi = () => {
+const VyrabimeDalsi = ({ actualURL }) => {
   const data = useStaticQuery(query)
+  const dalsi = data.allContentfulVyrabimeStavime.nodes.filter(
+    item => `/vyrabimeStavime/${item.slug}` !== actualURL
+  )
 
   return (
     <Wrapper>
       <h4>Vyrábíme také</h4>
       <Row>
         <ul className="d-flex overflow-auto">
-          {data.allContentfulVyrabimeStavime.nodes.map((item, index) => {
+          {dalsi.map((item, index) => {
             return (
               <li key={index} className="shadow-sm">
                 <Link to={`/vyrabimeStavime/${item.slug}`}>
@@ -72,7 +75,7 @@ const Wrapper = styled.div`
   }
 
   li {
-    width: 200px;
+    min-width: 60vw;
     border-radius: 10px;
     height: 50vh;
     margin: 0 10px;

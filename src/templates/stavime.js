@@ -58,6 +58,9 @@ const Stavime = props => {
     images,
     mainImage: { fluid },
   } = props.data.contentfulVyrabimeStavime
+
+  const actualURL = props.location.pathname
+
   return (
     <Layout>
       <SEO title={title} />
@@ -88,7 +91,8 @@ const Stavime = props => {
               )}
             </Row>
           </Container>
-          <VyrabimeDalsi />
+
+          <VyrabimeDalsi actualURL={actualURL} />
         </div>
       </Wrapper>
     </Layout>

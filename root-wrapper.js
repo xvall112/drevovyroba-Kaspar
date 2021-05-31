@@ -1,5 +1,7 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
+import { ThemeProvider } from "@material-ui/core/styles"
+import { createMuiTheme } from "@material-ui/core"
 //provider
 
 const GlobalStyle = createGlobalStyle`
@@ -106,11 +108,15 @@ Variables
   }
 `
 
+const theme = createMuiTheme({
+  palette: { primary: { main: "#a1806a" } },
+})
+
 export const wrapRootElement = ({ element }) => {
   return (
     <React.Fragment>
       <GlobalStyle />
-      {element}
+      <ThemeProvider theme={theme}>{element}</ThemeProvider>
     </React.Fragment>
   )
 }

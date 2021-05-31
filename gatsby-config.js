@@ -33,7 +33,8 @@ module.exports = {
       options: {
         spaceId: `y8jmdpyv8csl`,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        accessToken:
+          /* process.env.CONTENTFUL_ACCESS_TOKEN */ "8AmGwZy3ruiq3NxVd9WCg0NiatcQYvfOYjjrhlP67fU",
       },
     },
     `gatsby-plugin-sass`,
@@ -48,6 +49,7 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-smoothscroll`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,

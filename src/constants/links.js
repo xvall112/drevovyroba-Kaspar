@@ -1,13 +1,8 @@
 export default [
   {
-    key: "1",
-    text: "home",
-    url: "/",
-  },
-  {
     key: "2",
-    text: "vyrabime",
-    url: "/#vyrabime",
+    text: "vyrábíme",
+    url: "#vyrabime",
     /*  subLinks: [
       {
         page: "vyrabime",
@@ -45,6 +40,12 @@ export default [
         url: `/vyrabime/drevnik`,
       },
     ], */
+  },
+  {
+    key: "4",
+    text: "typové stavby",
+    url: "#tyoveStavby",
+    badge: "nové",
   },
   {
     key: "3",

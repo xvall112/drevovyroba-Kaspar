@@ -75,6 +75,7 @@ const Wrapper = styled.div`
   }
 
   li {
+    border-radius: 10px;
     min-width: 60vw;
     border-radius: 10px;
     height: 50vh;
@@ -100,6 +101,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+
     background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
     width: 100%;

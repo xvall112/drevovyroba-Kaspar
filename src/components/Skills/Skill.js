@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   .skills__icon {
     background-color: var(--clr-secondary);
     font-size: 2rem;
-    padding: 10px 20px;
+    padding: 10px 20px 20px 20px;
     margin-bottom: 20px;
     border-radius: 10px;
     display: inline-block;

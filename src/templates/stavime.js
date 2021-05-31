@@ -77,7 +77,7 @@ const Stavime = props => {
         </div>
         <div className="section-text">
           <Container>
-            <Row className="align-items-center justify-content-center">
+            <Row className="align-items-start justify-content-center">
               <Col md={6} className="pb-5">
                 <Img className="image" fluid={fluid} />
               </Col>
@@ -110,14 +110,18 @@ const Wrapper = styled.div`
   }
   .image {
     height: 40vh;
+    border-radius: 10px;
   }
   .header {
-    height: 30vh;
+    height: 20vh;
+    @media (min-width: 768px) {
+      height: 30vh;
+    }
   }
 
   .bc {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.6);
     height: 100%;

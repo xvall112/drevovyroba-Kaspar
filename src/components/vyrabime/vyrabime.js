@@ -44,15 +44,16 @@ const Vyrabime = () => {
             return (
               <Col md={4} className="coll" key={index}>
                 <Card>
-                  <BackgroundImage
-                    Tag="div"
-                    fluid={item.mainImage.fluid}
-                    className="bcg "
-                    preserveStackingContext={true}
-                  >
-                    <h2 className="text-center">{item.title}</h2>
-                    <Link to={`/vyrabimeStavime/${item.slug}`}>Vice</Link>
-                  </BackgroundImage>
+                  <Link to={`/vyrabimeStavime/${item.slug}`}>
+                    <BackgroundImage
+                      Tag="div"
+                      fluid={item.mainImage.fluid}
+                      className="bcg "
+                      preserveStackingContext={true}
+                    >
+                      <h2 className="text-center">{item.title}</h2>
+                    </BackgroundImage>
+                  </Link>
                 </Card>
               </Col>
             )
@@ -95,7 +96,7 @@ const Card = styled.div`
 
     height: 100%;
     width: 100%;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
     &:hover {
       background-color: rgba(0, 0, 0, 0.9);
       transform: scale(1.1);
@@ -104,11 +105,8 @@ const Card = styled.div`
   h2 {
     color: var(--clr-fourth);
   }
-  a {
-    border: 1px solid yellow;
-    padding: 10px 50px;
-    border-radius: 5px;
-    color: yellow;
+  a:hover {
+    text-decoration: none;
   }
 `
 export default Vyrabime

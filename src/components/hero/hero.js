@@ -1,7 +1,7 @@
 import React from "react"
 import Background from "./background"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { Button, Box } from "@material-ui/core"
 
 const Hero = () => {
   return (
@@ -12,7 +12,9 @@ const Hero = () => {
             <h1>
               Dřevovýroba <span>Kašpar</span>
             </h1>
-            <Link to="#kontakt">Kontakt</Link>
+            <Button variant="contained" color="primary" size="large">
+              Typové stavby
+            </Button>
           </article>
         </Background>
       </Wrapper>
@@ -32,7 +34,7 @@ const Wrapper = styled.section`
       color: var(--clr-fourth);
       span {
         color: var(--clr-primary);
-        font-size: 4rem;
+        font-size: 5rem;
       }
     }
     a {
